@@ -1,4 +1,5 @@
 import jwt from 'json-web-token';
+import { decode } from 'punycode';
 
 
 const authMiddleware = (req, res, next) => {
@@ -20,16 +21,21 @@ const authMiddleware = (req, res, next) => {
     })
 
 }
-
 export const verifyToken = (req, res, next) => {
-    if (!token) return res.status(401).json({ message: "Access denied" });
+    const token = req.cookies?.authToken;
+
+    if (!token) {
+        return res.status(401).json({ message: 'No token provided' });
+    }
 
     try {
-        const verified = jwt.verify(token.split(' ')[1], secretKey);
-        req.user = verified;
-        next();
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    } catch (e) {
-        res.status(400).json({ message: "Invalid token" })
+        req.user = decoded; // Attach decoded payload to request
+        next();
+    } catch (err) {
+        console.error("Token verification failed:", err);
+        return res.status(403).json({ message: 'Invalid or expired token' });
     }
-}
+};
+
