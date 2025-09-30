@@ -21,6 +21,7 @@ Modular planner for kitchen/bathroom upgrades using prefab and stock components.
 - Extend E2E flows with `client/tests/`
 - Document new flows in `docs/README-flow.md`
 
+## Project structure
 ```
 renovation-planner/
 ├── client/                  # React front-end
@@ -73,3 +74,12 @@ renovation-planner/
 - /user/:is - get user by id - ✅
 - /user/search - search user by email and name - ✅
 
+#Backlog
+## App user work
+- implement log in check 
+- implement routes for user(s)
+- implement controller for user(s)
+- create auth middleware for user authentication
+- lock down routes for authentication
+- create api tests for authentication
+- create unit tests for authentication & user routes/controllers
