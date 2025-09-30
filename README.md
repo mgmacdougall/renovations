@@ -44,7 +44,7 @@ renovation-planner/
 ```
 
 
-#Project Work completed:
+# Project Work completed:
 ## Project Scaffolding 
 - expressjs app scaffolded - ✅
 - server.js configured - ✅
