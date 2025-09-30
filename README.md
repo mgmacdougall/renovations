@@ -20,7 +20,7 @@ Modular planner for kitchen/bathroom upgrades using prefab and stock components.
 - Add new prefab types via `server/models/Prefab.ts`
 - Extend E2E flows with `client/tests/`
 - Document new flows in `docs/README-flow.md`
-
+```
 renovation-planner/
 ├── client/                  # React front-end
 │   ├── components/          # Reusable UI blocks (e.g., CostCalculator, PhaseSelector)
@@ -39,7 +39,7 @@ renovation-planner/
 ├── .env                     # Environment variables
 ├── docker-compose.yml       # Dev container setup
 └── README.md                # Modular documentation
-
+```
 
 
 Project Work completed:
