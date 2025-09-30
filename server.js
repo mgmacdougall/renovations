@@ -15,7 +15,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import morgan from 'morgan';
-import { all } from 'axios';
+import { verifyToken } from './middleware/auth.js';
 
 dotenv.config();
 const app = express();
@@ -23,7 +23,10 @@ connectDB()
 const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // Or your production frontend URL
+    credentials: true // Allow credentials to be sent
+}));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(morgan('combined', { stream: { write: message => logger.info(message.trim()) } }));
@@ -133,7 +136,7 @@ app.post('/login', async (req, res) => {
     }
 })
 
-app.get('/account', (req, res) => {
+app.get('/account', verifyToken, (req, res) => {
     // Get the cookie
     const token = req.cookies.authToken;
     if (token) {
