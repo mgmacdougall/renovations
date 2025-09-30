@@ -4,7 +4,7 @@ import 'dotenv/config';
 
 const connectDB = async () => {
     // console.log('DSADSA', process.env.DB_USERNAME)
-    let connectionString = `mongodb+srv://mgmacdougall_db_user:xQ6hxXW5r7Iyxo62@main.qjc3zdh.mongodb.net/renovations?retryWrites=true&w=majority&appName=main`;
+    let connectionString = ``
     // console.log('SSS', connectionString)
     try {
         await mongoose.connect(connectionString, {}
