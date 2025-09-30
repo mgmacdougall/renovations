@@ -20,6 +20,7 @@ Modular planner for kitchen/bathroom upgrades using prefab and stock components.
 - Add new prefab types via `server/models/Prefab.ts`
 - Extend E2E flows with `client/tests/`
 - Document new flows in `docs/README-flow.md`
+## Project structure
 ```
 renovation-planner/
 ├── client/                  # React front-end
@@ -41,18 +42,42 @@ renovation-planner/
 └── README.md                # Modular documentation
 ```
 
+# Project Work completed:
+## Project Scaffolding 
+- expressjs app scaffolded - ✅
+- server.js configured - ✅
+- basic get route completed - ✅
+- nodemon implemented - ✅
+- directory structure - ✅
+- basic logging implemented - ✅
+- database connection & loggers configured in /config folder - ✅
+- dotenv populated with JWT secret etc - ✅
 
-Project Work completed:
-expressjs app scaffolded - done
-server.js configured
-basic get route completed
-nodemon implemented
-basic logging implemented
-postman tests implemented
-postman test report implemented
-database connection & loggers configured in /config folder
-user schema created in /models folder
-database connection set up in the /db.js
-dotenv populated with JWT secret etc
+## Testing  
+- postman tests implemented - ✅
+- postman test report implemented - ✅
+
+## Database
+- user schema created in /models folder - ✅
+- user model - ✅
+- includes pre to hash user password in the save event (note must be a non-arrow function mthod to work) - ✅
+- includes the compare password function to be used to compare the password entered vs. the db version - ✅
+- database connection set up in the /db.js - ✅
 
 
+## End Points
+### User
+- /user - get all users - ✅
+- /user - post, create a user - ✅
+- /user/:is - get user by id - ✅
+- /user/search - search user by email and name - ✅
+
+#Backlog
+## App user work
+- implement log in check 
+- implement routes for user(s)
+- implement controller for user(s)
+- create auth middleware for user authentication
+- lock down routes for authentication
+- create api tests for authentication
+- create unit tests for authentication & user routes/controllers
